@@ -1,0 +1,43 @@
+<div class="update-user-form">
+  <h2>Update User</h2>
+  <!--Form to Update User Details-->
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" pInputText />
+      </div>
+      <div class="p-col-12">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" pInputText />
+      </div>
+      <div class="p-col-12">
+        <label>Gender</label>
+        <div class="p-formgroup-inline">
+          <p-radioButton name="gender" formControlName="gender" value="Male" label="Male"></p-radioButton>
+          <p-radioButton name="gender" formControlName="gender" value="Female" label="Female"></p-radioButton>
+          <p-radioButton name="gender" formControlName="gender" value="Other" label="Other"></p-radioButton>
+        </div>
+      </div>
+      
+      <div class="p-col-12">
+        <label for="department">Department</label>
+        <p-dropdown id="department" formControlName="department" [options]="departments" optionLabel="name" placeholder="Select Department"></p-dropdown>
+      </div>
+      <div class="p-col-12">
+        <label for="location">Location</label>
+        <p-dropdown id="location" formControlName="location" [options]="locations" optionLabel="name" placeholder="Select Location"></p-dropdown>
+      </div>
+      
+      <div class="p-col-12">
+        <label for="dateOfJoining">Date of Joining</label>
+        <input type="date" id="dateOfJoining" formControlName="dateOfJoining" pInputText />
+      </div>
+    </div>
+    
+    <div class="buttons">
+      <button type="submit" pButton label="Update" [disabled]="!form.valid" class="update-button"></button>
+      <button type="button" pButton label="Cancel" routerLink="/user" class="cancel-button"></button>
+      </div>
+  </form>
+</div>
